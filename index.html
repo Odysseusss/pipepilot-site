@@ -15,10 +15,16 @@
 
   <title>Pipe Pilot | Coming Soon</title>
 
+  <link
+    rel="icon"
+    type="image/png"
+    href="pipe-pilot-favicon.png"
+  >
+
   <style>
     :root {
       --background: #07111f;
-      --panel: rgba(15, 32, 53, 0.82);
+      --panel: rgba(15, 32, 53, 0.86);
       --blue: #27a7ff;
       --light-blue: #83d1ff;
       --text: #f4f8fc;
@@ -48,11 +54,15 @@
       color: var(--text);
       background:
         radial-gradient(
-          circle at 50% 20%,
-          rgba(39, 167, 255, 0.17),
+          circle at 50% 18%,
+          rgba(39, 167, 255, 0.18),
           transparent 38%
         ),
-        linear-gradient(145deg, #040a12, var(--background));
+        linear-gradient(
+          145deg,
+          #040a12,
+          var(--background)
+        );
     }
 
     body::before {
@@ -84,7 +94,7 @@
 
     .card {
       width: min(760px, 100%);
-      padding: 58px 42px;
+      padding: 50px 42px;
       text-align: center;
       border: 1px solid var(--border);
       border-radius: 24px;
@@ -96,21 +106,22 @@
     }
 
     .logo {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       justify-content: center;
-      width: 96px;
-      height: 96px;
-      margin-bottom: 28px;
-      border: 1px solid rgba(39, 167, 255, 0.34);
-      border-radius: 24px;
-      background: rgba(39, 167, 255, 0.08);
-      box-shadow: 0 0 36px rgba(39, 167, 255, 0.13);
+      width: 176px;
+      height: 176px;
+      margin: 0 auto 18px;
     }
 
-    .logo svg {
-      width: 66px;
-      height: 66px;
+    .logo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter:
+        drop-shadow(0 18px 22px rgba(0, 0, 0, 0.38))
+        drop-shadow(0 0 20px rgba(39, 167, 255, 0.18));
     }
 
     .eyebrow {
@@ -171,12 +182,14 @@
       font-weight: 750;
       text-decoration: none;
       border-radius: 10px;
-      background: linear-gradient(
-        135deg,
-        var(--light-blue),
-        var(--blue)
-      );
-      box-shadow: 0 12px 30px rgba(39, 167, 255, 0.2);
+      background:
+        linear-gradient(
+          135deg,
+          var(--light-blue),
+          var(--blue)
+        );
+      box-shadow:
+        0 12px 30px rgba(39, 167, 255, 0.2);
       transition:
         transform 160ms ease,
         box-shadow 160ms ease;
@@ -184,7 +197,13 @@
 
     .button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 16px 36px rgba(39, 167, 255, 0.28);
+      box-shadow:
+        0 16px 36px rgba(39, 167, 255, 0.28);
+    }
+
+    .button:focus-visible {
+      outline: 3px solid rgba(131, 209, 255, 0.7);
+      outline-offset: 4px;
     }
 
     footer {
@@ -194,14 +213,23 @@
     }
 
     @media (max-width: 560px) {
+      main {
+        padding: 20px 14px;
+      }
+
       .card {
-        padding: 42px 22px;
+        padding: 38px 22px;
         border-radius: 18px;
       }
 
       .logo {
-        width: 82px;
-        height: 82px;
+        width: 140px;
+        height: 140px;
+        margin-bottom: 16px;
+      }
+
+      .status {
+        font-size: 0.78rem;
       }
     }
   </style>
@@ -210,39 +238,20 @@
 <body>
   <main>
     <section class="card">
-      <div class="logo" aria-label="Pipe Pilot logo">
-        <svg
-          viewBox="0 0 100 100"
-          role="img"
-          aria-hidden="true"
+      <div class="logo">
+        <img
+          src="pipe-pilot-logo.png"
+          alt="Pipe Pilot PP logo"
         >
-          <path
-            d="M18 72 L50 54 L79 70"
-            fill="none"
-            stroke="#27a7ff"
-            stroke-width="9"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-
-          <path
-            d="M50 54 L50 20"
-            fill="none"
-            stroke="#83d1ff"
-            stroke-width="9"
-            stroke-linecap="round"
-          />
-
-          <circle cx="18" cy="72" r="7" fill="#83d1ff" />
-          <circle cx="50" cy="54" r="8" fill="#27a7ff" />
-          <circle cx="79" cy="70" r="7" fill="#83d1ff" />
-          <circle cx="50" cy="20" r="7" fill="#83d1ff" />
-        </svg>
       </div>
 
-      <p class="eyebrow">Built for the pipe trades</p>
+      <p class="eyebrow">
+        Built for the pipe trades
+      </p>
 
-      <h1>Pipe <span>Pilot</span></h1>
+      <h1>
+        Pipe <span>Pilot</span>
+      </h1>
 
       <p class="tagline">
         Isometric piping drawings, field references and fitting
