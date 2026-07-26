@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Pipe Pilot is an isometric piping drawing and field-reference platform currently in development."
+  >
+
+  <title>Pipe Pilot | Coming Soon</title>
+
+  <style>
+    :root {
+      --background: #07111f;
+      --panel: rgba(15, 32, 53, 0.82);
+      --blue: #27a7ff;
+      --light-blue: #83d1ff;
+      --text: #f4f8fc;
+      --muted: #9fb0c2;
+      --border: rgba(131, 209, 255, 0.22);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(
+          circle at 50% 20%,
+          rgba(39, 167, 255, 0.17),
+          transparent 38%
+        ),
+        linear-gradient(145deg, #040a12, var(--background));
+    }
+
+    body::before {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      content: "";
+      opacity: 0.28;
+      background-image:
+        linear-gradient(
+          rgba(39, 167, 255, 0.08) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(39, 167, 255, 0.08) 1px,
+          transparent 1px
+        );
+      background-size: 44px 44px;
+      transform: skewY(-4deg) scale(1.1);
+    }
+
+    main {
+      display: grid;
+      min-height: 100vh;
+      place-items: center;
+      padding: 32px 20px;
+    }
+
+    .card {
+      width: min(760px, 100%);
+      padding: 58px 42px;
+      text-align: center;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: var(--panel);
+      box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.42),
+        inset 0 1px rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(14px);
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 96px;
+      height: 96px;
+      margin-bottom: 28px;
+      border: 1px solid rgba(39, 167, 255, 0.34);
+      border-radius: 24px;
+      background: rgba(39, 167, 255, 0.08);
+      box-shadow: 0 0 36px rgba(39, 167, 255, 0.13);
+    }
+
+    .logo svg {
+      width: 66px;
+      height: 66px;
+    }
+
+    .eyebrow {
+      margin-bottom: 13px;
+      color: var(--light-blue);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin-bottom: 16px;
+      font-size: clamp(3rem, 9vw, 5.7rem);
+      font-weight: 800;
+      line-height: 0.95;
+      letter-spacing: -0.065em;
+    }
+
+    h1 span {
+      color: var(--blue);
+    }
+
+    .tagline {
+      max-width: 580px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: clamp(1rem, 2.8vw, 1.2rem);
+      line-height: 1.7;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 30px 0;
+      padding: 10px 16px;
+      color: #cdeeff;
+      font-size: 0.88rem;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(39, 167, 255, 0.07);
+    }
+
+    .status-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 12px var(--blue);
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 22px;
+      color: #03101b;
+      font-weight: 750;
+      text-decoration: none;
+      border-radius: 10px;
+      background: linear-gradient(
+        135deg,
+        var(--light-blue),
+        var(--blue)
+      );
+      box-shadow: 0 12px 30px rgba(39, 167, 255, 0.2);
+      transition:
+        transform 160ms ease,
+        box-shadow 160ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 36px rgba(39, 167, 255, 0.28);
+    }
+
+    footer {
+      margin-top: 42px;
+      color: #73879b;
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 560px) {
+      .card {
+        padding: 42px 22px;
+        border-radius: 18px;
+      }
+
+      .logo {
+        width: 82px;
+        height: 82px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <section class="card">
+      <div class="logo" aria-label="Pipe Pilot logo">
+        <svg
+          viewBox="0 0 100 100"
+          role="img"
+          aria-hidden="true"
+        >
+          <path
+            d="M18 72 L50 54 L79 70"
+            fill="none"
+            stroke="#27a7ff"
+            stroke-width="9"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+
+          <path
+            d="M50 54 L50 20"
+            fill="none"
+            stroke="#83d1ff"
+            stroke-width="9"
+            stroke-linecap="round"
+          />
+
+          <circle cx="18" cy="72" r="7" fill="#83d1ff" />
+          <circle cx="50" cy="54" r="8" fill="#27a7ff" />
+          <circle cx="79" cy="70" r="7" fill="#83d1ff" />
+          <circle cx="50" cy="20" r="7" fill="#83d1ff" />
+        </svg>
+      </div>
+
+      <p class="eyebrow">Built for the pipe trades</p>
+
+      <h1>Pipe <span>Pilot</span></h1>
+
+      <p class="tagline">
+        Isometric piping drawings, field references and fitting
+        intelligence—built into one practical platform.
+      </p>
+
+      <div class="status">
+        <span class="status-dot"></span>
+        Development in progress · Coming soon
+      </div>
+
+      <br>
+
+      <a
+        class="button"
+        href="mailto:craig@pipepilotapp.com"
+      >
+        Contact Pipe Pilot
+      </a>
+
+      <footer>
+        © 2026 Pipe Pilot. All rights reserved.
+      </footer>
+    </section>
+  </main>
+</body>
+</html>
