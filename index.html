@@ -18,11 +18,10 @@
   <title>Pipe Pilot | Coming Soon</title>
 
   <!-- Browser tab icon -->
- <link 
-   rel="icon" 
-   type="image/png" 
-   href="/pipe-pilot-tab-icon.png?v=3"
-   
+  <link
+    rel="icon"
+    type="image/png"
+    href="/pipe-pilot-tab-icon.png?v=3"
   >
 
   <!-- iPhone Home Screen icon -->
@@ -214,6 +213,10 @@
       box-shadow: 0 0 12px var(--blue);
     }
 
+    .contact-area {
+      margin-top: 4px;
+    }
+
     .button {
       display: inline-block;
 
@@ -253,6 +256,41 @@
       outline-offset: 4px;
     }
 
+    .signup-form-wrapper {
+      display: flex;
+      justify-content: center;
+
+      width: 100%;
+      margin-top: 36px;
+    }
+
+    .signup-form-wrapper .ml-embedded {
+      width: 100%;
+      max-width: 430px;
+    }
+
+    .signup-form-wrapper .ml-form-embedContainer {
+      width: 100% !important;
+    }
+
+    .signup-form-wrapper .ml-form-embedWrapper {
+      overflow: hidden !important;
+
+      width: 100% !important;
+      border-radius: 16px !important;
+
+      box-shadow:
+        0 18px 42px rgba(0, 0, 0, 0.28);
+    }
+
+    .signup-form-wrapper input[type="email"] {
+      border-radius: 8px !important;
+    }
+
+    .signup-form-wrapper .ml-form-embedSubmit button {
+      border-radius: 8px !important;
+    }
+
     footer {
       margin-top: 40px;
 
@@ -277,40 +315,41 @@
         font-size: 0.77rem;
       }
 
+      .signup-form-wrapper {
+        margin-top: 30px;
+      }
+
       footer {
         margin-top: 34px;
       }
     }
-
-    .signup-form-wrapper {
-  margin-top: 32px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.signup-form-wrapper .ml-form-embedWrapper {
-  border-radius: 12px !important;
-  overflow: hidden;
-}
-
-.signup-form-wrapper input[type="email"] {
-  border-radius: 7px !important;
-}
-
-.signup-form-wrapper .ml-form-embedSubmit button {
-  border-radius: 7px !important;
-}
   </style>
+
   <!-- MailerLite Universal -->
-<script>
-    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
-    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-    ml('account', '2535173');
-</script>
-<!-- End MailerLite Universal -->
+  <script>
+    (function(w,d,e,u,f,l,n){
+      w[f]=w[f]||function(){
+        (w[f].q=w[f].q||[]).push(arguments);
+      };
+
+      l=d.createElement(e);
+      l.async=1;
+      l.src=u;
+
+      n=d.getElementsByTagName(e)[0];
+      n.parentNode.insertBefore(l,n);
+    })
+    (
+      window,
+      document,
+      "script",
+      "https://assets.mailerlite.com/js/universal.js",
+      "ml"
+    );
+
+    ml("account", "2535173");
+  </script>
+  <!-- End MailerLite Universal -->
 </head>
 
 <body>
@@ -336,23 +375,21 @@
         Development in progress · Coming soon
       </div>
 
-      <br>
+      <div class="contact-area">
+        <a
+          class="button"
+          href="mailto:craig@pipepilotapp.com"
+        >
+          Contact
+        </a>
+      </div>
 
-      <a
-        class="button"
-        href="mailto:craig@pipepilotapp.com"
-      >
-        Contact
-      </a>
-      <a href="mailto:craig@pipepilotapp.com" class="contact-button">
-  Contact
-</a>
-
-<div class="signup-form-wrapper">
-
- <div class="ml-embedded" data-form="pbPucN"></div>
-
-</div>
+      <div class="signup-form-wrapper">
+        <div
+          class="ml-embedded"
+          data-form="pbPucN"
+        ></div>
+      </div>
 
       <footer>
         © 2026 Pipe Pilot. All rights reserved.
