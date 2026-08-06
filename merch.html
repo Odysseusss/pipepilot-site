@@ -3,886 +3,216 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Pipe Pilot stickers and field-inspired merchandise. The first sticker drop is being prepared for preorder.">
+  <meta name="description" content="Pipe Pilot collectible stickers and field-inspired merchandise.">
   <meta name="theme-color" content="#07111f">
   <title>Pipe Pilot | Merch</title>
-
-  <link rel="icon" type="image/png" sizes="64x64" href="pipe-pilot-tab-icon.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="pipe-pilot-app-icon.png">
-
+  <link rel="icon" type="image/png" href="assets/images/pipe-pilot-tab-icon.png">
+  <link rel="apple-touch-icon" href="assets/images/pipe-pilot-app-icon.png">
   <style>
-    :root {
-      --background: #07111f;
-      --background-deep: #040a12;
-      --panel: rgba(15, 32, 53, 0.92);
-      --panel-strong: rgba(9, 22, 38, 0.98);
-      --blue: #27a7ff;
-      --light-blue: #83d1ff;
-      --text: #f4f8fc;
-      --muted: #9fb0c2;
-      --muted-dark: #73879b;
-      --border: rgba(131, 209, 255, 0.22);
-      --border-strong: rgba(131, 209, 255, 0.42);
-      --max-width: 1160px;
-      --nav-height: 72px;
-      --success: #79e0b3;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      min-height: 100%;
-      scroll-behavior: smooth;
-      background: var(--background);
-    }
-
-    body {
-      min-height: 100vh;
-      min-height: 100dvh;
-      overflow-x: hidden;
-      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 75% 7%, rgba(39, 167, 255, 0.2), transparent 30%),
-        radial-gradient(circle at 15% 35%, rgba(131, 209, 255, 0.08), transparent 26%),
-        linear-gradient(145deg, var(--background-deep), var(--background));
-    }
-
-    body::before {
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      content: "";
-      opacity: 0.23;
-      background-image:
-        linear-gradient(rgba(39, 167, 255, 0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(39, 167, 255, 0.08) 1px, transparent 1px);
-      background-size: 44px 44px;
-      transform: skewY(-4deg) scale(1.1);
-    }
-
-    body::after {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      content: "";
-      pointer-events: none;
-      background: linear-gradient(to bottom, rgba(4, 10, 18, 0.02), rgba(4, 10, 18, 0.72));
-    }
-
-    a { color: inherit; }
-    img { max-width: 100%; }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      border-bottom: 1px solid var(--border);
-      background: rgba(4, 10, 18, 0.86);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-    }
-
-    .nav-shell,
-    main,
-    .footer-shell {
-      width: min(var(--max-width), calc(100% - 36px));
-      margin-inline: auto;
-    }
-
-    .nav-shell {
-      min-height: var(--nav-height);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      text-decoration: none;
-    }
-
-    .nav-logo {
-      display: block;
-      width: 190px;
-      max-height: 46px;
-      object-fit: contain;
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-    }
-
-    .text-link,
-    .nav-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 42px;
-      padding: 9px 12px;
-      font-size: 0.9rem;
-      font-weight: 750;
-      text-decoration: none;
-      border-radius: 9px;
-      transition: transform 160ms ease, color 160ms ease, background 160ms ease;
-    }
-
-    .text-link { color: var(--muted); }
-
-    .text-link:hover,
-    .text-link:focus-visible {
-      color: var(--text);
-      background: rgba(39, 167, 255, 0.09);
-    }
-
-    .nav-button {
-      color: #03101b;
-      background: linear-gradient(135deg, var(--light-blue), var(--blue));
-      box-shadow: 0 8px 22px rgba(39, 167, 255, 0.2);
-    }
-
-    .nav-button:hover,
-    .nav-button:focus-visible { transform: translateY(-1px); }
-
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
-      align-items: center;
-      gap: 46px;
-      padding: 86px 0 68px;
-    }
-
-    .eyebrow {
-      margin-bottom: 15px;
-      color: var(--light-blue);
-      font-size: 0.78rem;
-      font-weight: 850;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      max-width: 760px;
-      margin-bottom: 22px;
-      font-size: clamp(2.8rem, 7vw, 5.8rem);
-      line-height: 0.96;
-      letter-spacing: -0.055em;
-    }
-
-    .hero-copy {
-      max-width: 690px;
-      color: var(--muted);
-      font-size: clamp(1.05rem, 2vw, 1.24rem);
-      line-height: 1.75;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 30px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      min-height: 49px;
-      padding: 13px 20px;
-      color: #03101b;
-      font-weight: 850;
-      text-decoration: none;
-      border: 0;
-      border-radius: 11px;
-      background: linear-gradient(135deg, var(--light-blue), var(--blue));
-      box-shadow: 0 12px 30px rgba(39, 167, 255, 0.2);
-      transition: transform 160ms ease, box-shadow 160ms ease;
-    }
-
-    .button:hover,
-    .button:focus-visible {
-      transform: translateY(-2px);
-      box-shadow: 0 16px 36px rgba(39, 167, 255, 0.28);
-    }
-
-    .button-secondary {
-      color: var(--text);
-      border: 1px solid var(--border-strong);
-      background: rgba(39, 167, 255, 0.06);
-      box-shadow: none;
-    }
-
-    .button-disabled {
-      color: #7e93a7;
-      border: 1px solid rgba(131, 209, 255, 0.15);
-      background: rgba(115, 135, 155, 0.08);
-      box-shadow: none;
-      cursor: not-allowed;
-      pointer-events: none;
-    }
-
-    .status-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 25px;
-    }
-
-    .status-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 9px 12px;
-      color: #cdeeff;
-      font-size: 0.84rem;
-      font-weight: 700;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      background: rgba(39, 167, 255, 0.06);
-    }
-
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--blue);
-      box-shadow: 0 0 12px var(--blue);
-    }
-
-    .hero-art {
-      position: relative;
-      min-height: 460px;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      padding: 42px;
-      border: 1px solid var(--border);
-      border-radius: 26px;
-      background:
-        linear-gradient(145deg, rgba(39, 167, 255, 0.13), rgba(7, 17, 31, 0.84)),
-        var(--panel);
-      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.38);
-    }
-
-    .hero-art::before,
-    .hero-art::after {
-      position: absolute;
-      content: "";
-      border: 1px solid rgba(131, 209, 255, 0.2);
-      transform: rotate(30deg);
-    }
-
-    .hero-art::before {
-      width: 300px;
-      height: 300px;
-      border-radius: 44px;
-    }
-
-    .hero-art::after {
-      width: 210px;
-      height: 210px;
-      border-radius: 34px;
-    }
-
-    .merch-badge {
-      position: relative;
-      z-index: 2;
-      width: min(400px, 100%);
-      display: grid;
-      place-items: center;
-    }
-
-    .merch-badge img {
-      display: block;
-      width: 100%;
-      height: auto;
-      filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.42));
-    }
-
-    .badge-label {
-      margin-top: 20px;
-      color: var(--light-blue);
-      font-size: 0.76rem;
-      font-weight: 900;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    .section-block { padding: 74px 0; }
-
-    .section-heading {
-      max-width: 760px;
-      margin-bottom: 32px;
-    }
-
-    .section-heading h2 {
-      margin-bottom: 14px;
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      letter-spacing: -0.035em;
-    }
-
-    .section-heading p {
-      color: var(--muted);
-      font-size: 1.04rem;
-      line-height: 1.75;
-    }
-
-    .launch-card,
-    .info-card {
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      background: var(--panel);
-      box-shadow:
-        0 24px 70px rgba(0, 0, 0, 0.3),
-        inset 0 1px rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-    }
-
-    .launch-card {
-      display: grid;
-      grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.15fr);
-      overflow: hidden;
-    }
-
-    .launch-visual {
-      min-height: 410px;
-      display: grid;
-      place-items: center;
-      padding: 34px;
-      background:
-        linear-gradient(150deg, rgba(39, 167, 255, 0.26), rgba(4, 10, 18, 0.86)),
-        repeating-linear-gradient(60deg, rgba(255, 255, 255, 0.04) 0 2px, transparent 2px 20px);
-    }
-
-    .launch-mark {
-      width: min(430px, 96%);
-      display: grid;
-      place-items: center;
-    }
-
-    .launch-mark img {
-      display: block;
-      width: 100%;
-      max-height: 520px;
-      object-fit: contain;
-      filter: drop-shadow(0 24px 34px rgba(0, 0, 0, 0.46));
-    }
-
-    .launch-copy { padding: 42px; }
-
-    .availability {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 18px;
-      padding: 8px 11px;
-      color: #cdeeff;
-      font-size: 0.8rem;
-      font-weight: 850;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      border: 1px solid var(--border-strong);
-      border-radius: 999px;
-      background: rgba(39, 167, 255, 0.08);
-    }
-
-    .launch-copy h2 {
-      margin-bottom: 14px;
-      font-size: clamp(1.9rem, 4vw, 3rem);
-      letter-spacing: -0.035em;
-    }
-
-    .launch-copy > p {
-      color: var(--muted);
-      line-height: 1.75;
-    }
-
-    .product-notes {
-      display: grid;
-      gap: 12px;
-      margin: 25px 0 28px;
-      list-style: none;
-    }
-
-    .product-notes li {
-      display: flex;
-      gap: 11px;
-      color: #d9e6f2;
-      line-height: 1.55;
-    }
-
-    .product-notes li::before {
-      flex: 0 0 auto;
-      content: "✓";
-      color: var(--success);
-      font-weight: 900;
-    }
-
-    .fine-print {
-      margin-top: 15px;
-      color: var(--muted-dark);
-      font-size: 0.82rem;
-      line-height: 1.6;
-    }
-
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .info-card { padding: 28px; }
-
-    .info-number {
-      width: 42px;
-      height: 42px;
-      margin-bottom: 22px;
-      display: grid;
-      place-items: center;
-      color: var(--light-blue);
-      font-weight: 900;
-      border: 1px solid var(--border-strong);
-      border-radius: 12px;
-      background: rgba(39, 167, 255, 0.08);
-    }
-
-    .info-card h3 {
-      margin-bottom: 11px;
-      font-size: 1.12rem;
-    }
-
-    .info-card p {
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .catalogue-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .catalogue-card {
-      position: relative;
-      overflow: hidden;
-      min-height: 250px;
-      padding: 32px;
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      background: var(--panel-strong);
-    }
-
-    .catalogue-card::after {
-      position: absolute;
-      right: -70px;
-      bottom: -85px;
-      width: 240px;
-      height: 240px;
-      content: "";
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(39, 167, 255, 0.2), transparent 68%);
-    }
-
-    .catalogue-card > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .catalogue-card h3 {
-      margin-bottom: 12px;
-      font-size: 1.35rem;
-    }
-
-    .catalogue-card p {
-      max-width: 520px;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .catalogue-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 22px;
-    }
-
-    .catalogue-meta span {
-      padding: 8px 10px;
-      color: #cdeeff;
-      font-size: 0.8rem;
-      font-weight: 700;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      background: rgba(39, 167, 255, 0.05);
-    }
-
-
-    .stripe-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .stripe-card {
-      min-width: 0;
-      overflow: hidden;
-      padding: 22px;
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      background: var(--panel-strong);
-      box-shadow:
-        0 24px 70px rgba(0, 0, 0, 0.28),
-        inset 0 1px rgba(255, 255, 255, 0.03);
-    }
-
-    .stripe-card-label {
-      margin-bottom: 14px;
-      color: var(--light-blue);
-      font-size: 0.76rem;
-      font-weight: 850;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
-
-    stripe-buy-button {
-      display: block;
-      width: 100%;
-      min-height: 420px;
-    }
-
-    .site-footer {
-      margin-top: 46px;
-      border-top: 1px solid var(--border);
-    }
-
-    .footer-shell {
-      padding: 30px 0 42px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .footer-copy {
-      color: var(--muted-dark);
-      font-size: 0.82rem;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    .footer-links a {
-      color: var(--muted);
-      font-size: 0.82rem;
-      text-decoration: none;
-    }
-
-    .footer-links a:hover { color: var(--text); }
-
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        padding-top: 66px;
-      }
-
-      .hero-art {
-        min-height: 390px;
-        max-width: 700px;
-      }
-
-      .launch-card { grid-template-columns: 1fr; }
-      .launch-visual { min-height: 330px; }
-
-      .info-grid,
-      .stripe-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .stripe-grid {
-        width: 100%;
-        max-width: 560px;
-        margin-inline: auto;
-        gap: 24px;
-      }
-
-      .stripe-card {
-        width: 100%;
-        min-width: 0;
-      }
-
-      stripe-buy-button {
-        display: block;
-        width: 100%;
-        max-width: 100%;
-      }
-    }
-
-    @media (max-width: 680px) {
-      .nav-shell {
-        min-height: auto;
-        padding: 13px 0;
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .nav-logo { width: 158px; }
-
-      .nav-actions {
-        width: 100%;
-        overflow-x: auto;
-        justify-content: flex-start;
-      }
-
-      .text-link,
-      .nav-button {
-        flex: 0 0 auto;
-        min-height: 39px;
-        padding: 8px 10px;
-        font-size: 0.82rem;
-      }
-
-      main,
-      .nav-shell,
-      .footer-shell {
-        width: min(100% - 28px, var(--max-width));
-      }
-
-      .hero { padding: 50px 0 46px; }
-      h1 { font-size: clamp(2.55rem, 13vw, 4rem); }
-
-      .hero-actions {
-        display: grid;
-        grid-template-columns: 1fr;
-      }
-
-      .button { width: 100%; }
-
-      .status-row {
-        display: grid;
-        grid-template-columns: 1fr;
-      }
-
-      .status-chip { justify-content: center; }
-      .hero-art { min-height: 320px; padding: 26px; border-radius: 20px; }
-      .merch-badge { width: min(290px, 100%); }
-      .section-block { padding: 58px 0; }
-      .launch-copy { padding: 28px 24px; }
-      .launch-visual { min-height: 285px; padding: 25px; }
-      .catalogue-grid { grid-template-columns: 1fr; }
-
-      .stripe-grid {
-        max-width: 100%;
-        gap: 22px;
-      }
-
-      .catalogue-card,
-      .stripe-card,
-      .info-card {
-        padding: 18px;
-        border-radius: 17px;
-      }
-
-      .stripe-card-label {
-        margin: 4px 6px 14px;
-      }
-
-      stripe-buy-button {
-        min-height: 420px;
-      }
-
-      .footer-shell {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition: none !important; }
-    }
+    :root{--bg:#07111f;--deep:#040a12;--panel:rgba(15,32,53,.92);--panel2:rgba(9,22,38,.98);--blue:#27a7ff;--light:#83d1ff;--text:#f4f8fc;--muted:#9fb0c2;--dim:#73879b;--border:rgba(131,209,255,.22);--strong:rgba(131,209,255,.42);--success:#79e0b3;--danger:#ff9d9d;--warning:#ffd27a;--max:1160px;--ease:cubic-bezier(.2,.75,.2,1)}
+    *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;background:var(--bg)}body{min-height:100vh;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);background:radial-gradient(circle at 75% 7%,rgba(39,167,255,.2),transparent 30%),linear-gradient(145deg,var(--deep),var(--bg));overflow-x:hidden}body:before{position:fixed;inset:0;z-index:-1;content:"";opacity:.22;background-image:linear-gradient(rgba(39,167,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(39,167,255,.08) 1px,transparent 1px);background-size:44px 44px;transform:skewY(-4deg) scale(1.1)}body.cart-open{overflow:hidden}a{color:inherit}.shell{width:min(var(--max),calc(100% - 36px));margin:auto}
+    header{position:sticky;top:0;z-index:20;border-bottom:1px solid var(--border);background:rgba(4,10,18,.88);backdrop-filter:blur(16px)}nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}.logo{width:190px;display:block}.nav-actions{display:flex;align-items:center;gap:10px}.link,.cart-button{min-height:42px;padding:9px 13px;border-radius:9px;font-weight:800;text-decoration:none;border:0;transition:transform .18s var(--ease),background .18s ease,color .18s ease,box-shadow .18s ease}.link{color:var(--muted)}.link:hover,.link:focus-visible{color:var(--text);background:rgba(39,167,255,.08)}.cart-button{color:#03101b;background:linear-gradient(135deg,var(--light),var(--blue));cursor:pointer;box-shadow:0 8px 22px rgba(39,167,255,.2)}.cart-button:hover,.cart-button:focus-visible{transform:translateY(-1px);box-shadow:0 12px 28px rgba(39,167,255,.3)}.cart-button:active{transform:translateY(0) scale(.98)}.cart-count{display:inline-grid;place-items:center;min-width:22px;height:22px;margin-left:7px;padding:0 6px;border-radius:999px;background:#03101b;color:var(--light);font-size:.76rem;transition:transform .18s var(--ease)}.cart-count.bump{transform:scale(1.28)}
+    .hero{display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:46px;padding:78px 0 62px}.eyebrow{margin-bottom:14px;color:var(--light);font-size:.78rem;font-weight:900;letter-spacing:.22em;text-transform:uppercase}h1{max-width:760px;margin-bottom:20px;font-size:clamp(2.8rem,7vw,5.7rem);line-height:.96;letter-spacing:-.055em}.hero p{max-width:690px;color:var(--muted);font-size:clamp(1.04rem,2vw,1.2rem);line-height:1.75}.hero-art{min-height:420px;display:grid;place-items:center;padding:36px;border:1px solid var(--border);border-radius:26px;background:linear-gradient(145deg,rgba(39,167,255,.13),rgba(7,17,31,.84)),var(--panel);box-shadow:0 28px 80px rgba(0,0,0,.38)}.hero-art img{width:min(390px,100%);filter:drop-shadow(0 20px 30px rgba(0,0,0,.42))}
+    section{padding:68px 0}.heading{max-width:780px;margin-bottom:30px}.heading h2{margin-bottom:12px;font-size:clamp(2rem,4vw,3.15rem);letter-spacing:-.035em}.product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.product-card{display:flex;flex-direction:column;overflow:hidden;border:1px solid var(--border);border-radius:22px;background:var(--panel2);box-shadow:0 24px 70px rgba(0,0,0,.28);transition:transform .2s var(--ease),border-color .2s ease,box-shadow .2s ease}.product-card:hover{transform:translateY(-3px);border-color:var(--strong);box-shadow:0 30px 76px rgba(0,0,0,.34)}.product-image{aspect-ratio:1/1;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at 50% 50%,rgba(39,167,255,.14),transparent 58%),#07111f}.product-image img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 18px 22px rgba(0,0,0,.42));transition:transform .24s var(--ease)}.product-card:hover .product-image img{transform:translateY(-4px) scale(1.012)}.product-body{display:flex;flex-direction:column;flex:1;padding:24px}.sku{color:var(--light);font-size:.75rem;font-weight:900;letter-spacing:.16em}.product-title{margin:9px 0 8px;font-size:1.35rem}.product-detail{margin:2px 0 18px;color:var(--muted);font-size:.84rem;line-height:1.5}.sold-count{color:var(--dim)}.price-row{display:flex;align-items:end;justify-content:space-between;gap:14px;margin-top:auto}.price{font-size:1.45rem;font-weight:900}.stock{font-size:.82rem;font-weight:850;color:var(--success);text-align:right}.stock.low{color:#ffd27a}.stock.critical{color:var(--danger)}.stock.soldout{color:var(--dim)}.add{width:100%;min-height:48px;margin-top:17px;border:0;border-radius:11px;color:#03101b;background:linear-gradient(135deg,var(--light),var(--blue));font-weight:900;cursor:pointer;transition:transform .16s var(--ease),box-shadow .16s ease,filter .16s ease}.add:hover:not(:disabled),.add:focus-visible:not(:disabled){transform:translateY(-1px);box-shadow:0 10px 24px rgba(39,167,255,.23)}.add:active:not(:disabled){transform:scale(.985)}.add.added{background:var(--success);filter:saturate(.9)}.add:disabled{cursor:not-allowed;color:#7e93a7;background:rgba(115,135,155,.14)}
+    .cart-backdrop{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.58);opacity:0;visibility:hidden;transition:opacity .2s ease,visibility .2s ease}.cart-backdrop.open{opacity:1;visibility:visible}.cart-drawer{position:fixed;top:0;right:0;z-index:60;width:min(430px,100%);height:100dvh;display:flex;flex-direction:column;border-left:1px solid var(--border);background:#07111f;box-shadow:-24px 0 70px rgba(0,0,0,.46);transform:translateX(100%);transition:transform .24s ease}.cart-drawer.open{transform:translateX(0)}.cart-header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px;border-bottom:1px solid var(--border)}.cart-header h2{font-size:1.4rem}.icon-button{min-width:42px;min-height:42px;padding:8px 11px;color:var(--text);font-weight:850;border:1px solid var(--border);border-radius:10px;background:rgba(39,167,255,.07);cursor:pointer;transition:background .16s ease,border-color .16s ease,transform .16s ease}.icon-button:hover,.icon-button:focus-visible{background:rgba(39,167,255,.13);border-color:var(--strong)}.icon-button:active{transform:scale(.97)}.cart-items{flex:1;overflow:auto;padding:18px 22px}.empty-cart{padding:48px 18px;color:var(--muted);text-align:center;line-height:1.65}.empty-cart-mark{width:58px;height:58px;margin:0 auto 16px;display:grid;place-items:center;border:1px solid var(--border);border-radius:18px;background:rgba(39,167,255,.07);color:var(--light);font-size:1.5rem}.empty-cart strong{display:block;margin-bottom:5px;color:var(--text);font-size:1.05rem}.cart-item{display:grid;grid-template-columns:72px minmax(0,1fr);gap:14px;padding:16px 0;border-bottom:1px solid var(--border)}.cart-thumb{width:72px;height:72px;display:grid;place-items:center;padding:7px;border:1px solid var(--border);border-radius:12px;background:var(--panel2)}.cart-thumb img{width:100%;height:100%;object-fit:contain}.cart-item-top{display:flex;align-items:start;justify-content:space-between;gap:12px}.cart-item-name{font-weight:850;line-height:1.3}.cart-item-price{margin-top:4px;color:var(--muted);font-size:.86rem}.remove{margin-top:8px;padding:0;color:var(--danger);font-size:.8rem;font-weight:800;border:0;background:none;cursor:pointer;opacity:.86;transition:opacity .15s ease}.remove:hover,.remove:focus-visible{opacity:1;text-decoration:underline}.quantity-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px}.quantity-control{display:inline-flex;align-items:center;border:1px solid var(--border);border-radius:10px;overflow:hidden}.quantity-control button{width:36px;height:34px;color:var(--text);font-size:1.1rem;border:0;background:rgba(39,167,255,.07);cursor:pointer;transition:background .15s ease,color .15s ease}.quantity-control button:hover:not(:disabled),.quantity-control button:focus-visible:not(:disabled){background:rgba(39,167,255,.17)}.quantity-control button:disabled{color:var(--dim);cursor:not-allowed}.quantity-control span{min-width:38px;text-align:center;font-weight:850}.line-total{font-weight:900}.cart-footer{padding:20px 22px calc(20px + env(safe-area-inset-bottom));border-top:1px solid var(--border);background:rgba(4,10,18,.92)}.summary{display:grid;gap:10px;margin-bottom:16px}.summary-row{display:flex;align-items:center;justify-content:space-between;gap:18px;color:var(--muted)}.summary-row strong{color:var(--text)}.summary-total{margin-top:2px;padding-top:12px;border-top:1px solid var(--border);color:var(--text);font-weight:900}.summary-total strong{font-size:1.35rem}.checkout{width:100%;min-height:50px;border:0;border-radius:11px;color:#03101b;background:linear-gradient(135deg,var(--light),var(--blue));font-weight:900;cursor:pointer}.checkout:disabled{color:#7e93a7;background:rgba(115,135,155,.14);cursor:not-allowed}.cart-note{margin-top:10px;color:var(--dim);font-size:.78rem;line-height:1.45;text-align:center}.toast{position:fixed;left:50%;bottom:24px;z-index:80;max-width:min(90vw,420px);padding:11px 16px;color:#03101b;font-weight:850;border-radius:999px;background:var(--success);box-shadow:0 16px 40px rgba(0,0,0,.35);opacity:0;pointer-events:none;transform:translate(-50%,14px);transition:opacity .18s ease,transform .18s ease}.toast.show{opacity:1;transform:translate(-50%,0)}
+    footer{border-top:1px solid var(--border)}footer .shell{min-height:92px;display:flex;align-items:center;justify-content:space-between;gap:20px;color:var(--dim);font-size:.82rem}
+    @media(max-width:920px){.hero{grid-template-columns:1fr}.hero-art{max-width:700px}.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:640px){.shell{width:min(100% - 28px,var(--max))}nav{min-height:auto;padding:13px 0;align-items:flex-start;flex-direction:column}.logo{width:158px}.nav-actions{width:100%;justify-content:space-between}.hero{padding:48px 0 42px}.hero-art{min-height:300px;padding:24px}.product-grid{grid-template-columns:1fr}footer .shell{align-items:flex-start;justify-content:center;flex-direction:column}.cart-drawer{width:100%}.cart-button{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:30;min-height:48px;padding:11px 16px;border-radius:999px}.nav-actions .link{margin-right:auto}header .nav-actions{padding-right:0}.toast{bottom:calc(76px + env(safe-area-inset-bottom))}}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
   </style>
-  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
 </head>
-
 <body>
-  <header class="site-header">
-    <nav class="nav-shell" aria-label="Merch navigation">
-      <a class="brand" href="index.html" aria-label="Pipe Pilot home">
-        <img class="nav-logo" src="pipe-pilot-wordmark.png" alt="Pipe Pilot">
-      </a>
+<header><nav class="shell"><a href="#" aria-label="Pipe Pilot merch home"><img class="logo" src="assets/images/pipe-pilot-wordmark.png" alt="Pipe Pilot"></a><div class="nav-actions"><a class="link" href="#collection">Collection</a><button class="cart-button" id="open-cart" type="button" aria-label="Open cart">Cart <span class="cart-count" id="cart-count">0</span></button></div></nav></header>
+<main class="shell">
+  <section class="hero"><div><p class="eyebrow">Pipe Pilot Merch</p><h1>Field-built. Toolbox approved.</h1><p>Original Pipe Pilot stickers made for hardhats, gang boxes, welders, laptops and anywhere else that needs more personality.</p></div><div class="hero-art"><img src="assets/images/pipe-pilot-industrial-sticker.png" alt="Pipe Pilot industrial sticker"></div></section>
+  <section id="collection"><div class="heading"><p class="eyebrow">Available Now</p><h2>Shop Pipe Pilot stickers.</h2></div><div class="product-grid" id="product-grid" aria-live="polite"></div></section>
+</main>
+<footer><div class="shell"><span>© 2026 Pipe Pilot. All rights reserved.</span><a class="link" href="#">Back to top</a></div></footer>
+<div class="cart-backdrop" id="cart-backdrop"></div>
+<aside class="cart-drawer" id="cart-drawer" aria-labelledby="cart-title" aria-hidden="true">
+  <div class="cart-header"><h2 id="cart-title">Your cart</h2><button class="icon-button" id="close-cart" type="button" aria-label="Close cart">Close</button></div>
+  <div class="cart-items" id="cart-items" aria-live="polite"></div>
+  <div class="cart-footer"><div class="summary"><div class="summary-row"><span>Merch subtotal</span><strong id="cart-subtotal">$0.00</strong></div><div class="summary-row"><span>Shipping &amp; handling</span><strong id="cart-shipping">$0.00</strong></div><div class="summary-row summary-total"><span>Order total</span><strong id="cart-total">$0.00</strong></div></div><button class="checkout" id="checkout-button" type="button" disabled>Checkout coming next</button><p class="cart-note">Flat-rate shipping anywhere in Canada: $4.99 CAD.</p></div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+  const CART_STORAGE_KEY = 'pipePilotMerchCartV1';
+  const SHIPPING_RATE = 4.99;
+  const CHECKOUT_API_URL = 'https://pipepilot-api.vercel.app/api/create-checkout-session';
+  const fallbackProducts = [
+    {sku:'PP-001',name:'First You Shake It',price:4,currency:'CAD',image:'assets/images/first-you-shake-it.png',edition:'First Run',releaseDate:'August 2026',stock:50,sold:0,status:'active'},
+    {sku:'PP-002',name:'Major League Toprails',price:4,currency:'CAD',image:'assets/images/major-league-toprails.png',edition:'First Run',releaseDate:'August 2026',stock:50,sold:0,status:'active'},
+    {sku:'PP-003',name:'Pipe Pilot Mountain',price:3,currency:'CAD',image:'assets/images/pipe-pilot-mountain.jpg',edition:'First Run',releaseDate:'August 2026',stock:50,sold:0,status:'active'}
+  ];
+  let products = [];
+  let cart = loadCart();
+  const money = new Intl.NumberFormat('en-CA',{style:'currency',currency:'CAD'});
+  const productGrid = document.getElementById('product-grid');
+  const cartCount = document.getElementById('cart-count');
+  const cartItems = document.getElementById('cart-items');
+  const cartSubtotal = document.getElementById('cart-subtotal');
+  const cartShipping = document.getElementById('cart-shipping');
+  const cartTotal = document.getElementById('cart-total');
+  const checkoutButton = document.getElementById('checkout-button');
+  const cartDrawer = document.getElementById('cart-drawer');
+  const cartBackdrop = document.getElementById('cart-backdrop');
+  const toast = document.getElementById('toast');
+  let previousCartCount = totalCartItems();
 
-      <div class="nav-actions">
-        <a class="text-link" href="index.html">Home</a>
-        <a class="text-link" href="pipe-pilot-site-preview.html">Preview</a>
-        <a class="nav-button" href="merch.html" aria-current="page">Merch</a>
-      </div>
-    </nav>
-  </header>
+  function loadCart(){
+    try{
+      const saved = JSON.parse(localStorage.getItem(CART_STORAGE_KEY));
+      return saved && typeof saved === 'object' ? saved : {};
+    }catch(error){
+      return {};
+    }
+  }
+  function saveCart(){localStorage.setItem(CART_STORAGE_KEY,JSON.stringify(cart))}
+  function stockLabel(stock){if(stock<=0)return{label:'Sold Out',cls:'soldout'};if(stock<=5)return{label:`Only ${stock} Left`,cls:'critical'};if(stock<=20)return{label:'Low Stock',cls:'low'};return{label:'In Stock',cls:''}}
+  function productBySku(sku){return products.find(product=>product.sku===sku)}
+  function cartQuantity(sku){return Number(cart[sku]||0)}
+  function totalCartItems(){return Object.values(cart).reduce((sum,quantity)=>sum+Number(quantity||0),0)}
+  let recentlyAddedSku = null;
+  function showToast(message){toast.textContent=message;toast.classList.add('show');clearTimeout(showToast.timer);showToast.timer=setTimeout(()=>toast.classList.remove('show'),1500)}
 
-  <main>
-    <section class="hero">
-      <div>
-        <p class="eyebrow">Pipe Pilot Merch</p>
-        <h1>Field-inspired — Sticky… not tacky.</h1>
-        <p class="hero-copy">
-          The first Pipe Pilot sticker drop is out now! Original designs,
-          trade humour and piping culture—built for hardhats, gang boxes, welders,
-          laptops and anywhere else that needs more personality.
-        </p>
+  function renderProducts(){
+    const active = products.filter(product=>product.status==='active');
+    productGrid.innerHTML = active.map(product=>{
+      const state = stockLabel(product.stock);
+      const sold = product.sold>0 ? `<span class="sold-count"> · ${product.sold} sold</span>` : '';
+      const quantity = cartQuantity(product.sku);
+      const unavailable = product.stock<=0 || quantity>=product.stock;
+      const isRecentlyAdded = recentlyAddedSku === product.sku && !unavailable;
+      const buttonText = product.stock<=0 ? 'Sold Out' : quantity>=product.stock ? 'Maximum in Cart' : isRecentlyAdded ? 'Added' : 'Add to Cart';
+      const addedClass = isRecentlyAdded ? ' added' : '';
+      return `<article class="product-card"><div class="product-image"><img src="${product.image}" alt="${product.name} sticker"></div><div class="product-body"><span class="sku">${product.sku}</span><h3 class="product-title">${product.name}</h3><p class="product-detail">${product.edition} · ${product.releaseDate}${sold}</p><div class="price-row"><div class="price">${money.format(product.price)}</div><div class="stock ${state.cls}">${state.label}</div></div><button class="add${addedClass}" type="button" data-add-sku="${product.sku}" ${unavailable?'disabled':''}>${buttonText}</button></div></article>`;
+    }).join('');
+  }
 
-        <div class="hero-actions">
-          <a class="button" href="#shop">Shop the live drop</a>
-          <a class="button button-secondary" href="index.html#home">Get launch updates</a>
-        </div>
+  function renderCart(){
+    const entries = Object.entries(cart).filter(([sku,quantity])=>quantity>0 && productBySku(sku));
+    const nextCartCount = totalCartItems();
+    cartCount.textContent = nextCartCount;
+    if(nextCartCount !== previousCartCount){
+      cartCount.classList.remove('bump');
+      void cartCount.offsetWidth;
+      cartCount.classList.add('bump');
+      setTimeout(()=>cartCount.classList.remove('bump'),180);
+      previousCartCount = nextCartCount;
+    }
+    if(!entries.length){
+      cartItems.innerHTML = '<div class="empty-cart"><div class="empty-cart-mark" aria-hidden="true">▣</div><strong>Your cart is empty</strong>Add a sticker to get started.</div>';
+      cartSubtotal.textContent = money.format(0);
+      cartShipping.textContent = money.format(0);
+      cartTotal.textContent = money.format(0);
+      checkoutButton.disabled = true;
+      renderProducts();
+      return;
+    }
+    let subtotal = 0;
+    cartItems.innerHTML = entries.map(([sku,quantity])=>{
+      const product = productBySku(sku);
+      const lineTotal = product.price*quantity;
+      subtotal += lineTotal;
+      return `<article class="cart-item"><div class="cart-thumb"><img src="${product.image}" alt=""></div><div><div class="cart-item-top"><div><div class="cart-item-name">${product.name}</div><div class="cart-item-price">${money.format(product.price)} each</div></div><strong class="line-total">${money.format(lineTotal)}</strong></div><div class="quantity-row"><div class="quantity-control" aria-label="Quantity controls for ${product.name}"><button type="button" data-decrease-sku="${sku}" aria-label="Decrease quantity">−</button><span>${quantity}</span><button type="button" data-increase-sku="${sku}" aria-label="Increase quantity" ${quantity>=product.stock?'disabled':''}>+</button></div><button class="remove" type="button" data-remove-sku="${sku}">Remove</button></div></div></article>`;
+    }).join('');
+    const shipping = SHIPPING_RATE;
+    const orderTotal = subtotal + shipping;
+    cartSubtotal.textContent = money.format(subtotal);
+    cartShipping.textContent = money.format(shipping);
+    cartTotal.textContent = money.format(orderTotal);
+    checkoutButton.textContent = `Checkout — ${money.format(orderTotal)}`;
+    checkoutButton.disabled = false;
+    renderProducts();
+  }
 
-        <div class="status-row" aria-label="Merch status">
-          <span class="status-chip"><span class="status-dot"></span> Live Stripe checkout</span>
-          <span class="status-chip">3 designs available</span>
-          <span class="status-chip">More designs coming soon</span>
-        </div>
-      </div>
-
-      <div class="hero-art" aria-label="Pipe Pilot industrial sticker artwork">
-        <div class="merch-badge">
-          <img src="pipe-pilot-industrial-sticker.png" alt="Pipe Pilot industrial piping sticker logo">
-        </div>
-      </div>
-    </section>
-
-    <section class="section-block" id="first-drop">
-      <div class="section-heading">
-        <p class="eyebrow">First Release</p>
-        <h2>The Pipe Pilot sticker catalogue.</h2>
-        <p>
-          Three designs are now connected to live Stripe checkout. More coming soon.
-        </p>
-      </div>
-
-      <article class="launch-card">
-        <div class="launch-visual">
-          <div class="launch-mark">
-            <img src="financed-by-high-leverage-sticker.png" alt="Financed by High-Leverage Pipe Pilot sticker">
-          </div>
-        </div>
-
-        <div class="launch-copy">
-          <span class="availability">First Drop Live</span>
-          <h2>Get in on the heist!</h2>
-          <p>
-            The first live release is open below. Each Stripe button displays the
-            exact product, price and checkout terms configured for that sticker. More
-            designs will be added as their individual checkout links are approved.
-          </p>
-
-          <ul class="product-notes">
-            <li>Three individual sticker products are live</li>
-            <li>Secure Stripe-hosted checkout and payment processing</li>
-            <li>Exact product and price displayed inside each Stripe button</li>
-            <li>More coming soon</li>
-          </ul>
-
-          <a class="button" href="#shop">View live stickers</a>
-          <p class="fine-print">
-            These are live Stripe checkout buttons. Completing checkout will create a
-            real order and charge the selected payment method.
-          </p>
-        </div>
-      </article>
-    </section>
+  function addToCart(sku){
+    const product = productBySku(sku);
+    if(!product || product.stock<=0)return;
+    const current = cartQuantity(sku);
+    if(current>=product.stock){showToast('Maximum available stock is already in your cart.');return;}
+    cart[sku]=current+1;
+    recentlyAddedSku = sku;
+    saveCart();
+    renderCart();
+    clearTimeout(addToCart.resetTimer);
+    addToCart.resetTimer = setTimeout(()=>{
+      if(recentlyAddedSku === sku){
+        recentlyAddedSku = null;
+        renderProducts();
+      }
+    },750);
+    showToast(`${product.name} added to cart`);
+  }
+  function changeQuantity(sku,change){
+    const product = productBySku(sku);
+    if(!product)return;
+    const next = Math.max(0,Math.min(product.stock,cartQuantity(sku)+change));
+    if(next===0)delete cart[sku];else cart[sku]=next;
+    saveCart();
+    renderCart();
+  }
+  function removeFromCart(sku){delete cart[sku];saveCart();renderCart()}
+  function openCart(){cartDrawer.classList.add('open');cartBackdrop.classList.add('open');cartDrawer.setAttribute('aria-hidden','false');document.body.classList.add('cart-open');document.getElementById('close-cart').focus()}
+  function closeCart(){cartDrawer.classList.remove('open');cartBackdrop.classList.remove('open');cartDrawer.setAttribute('aria-hidden','true');document.body.classList.remove('cart-open');document.getElementById('open-cart').focus()}
 
 
-    <section class="section-block" id="shop">
-      <div class="section-heading">
-        <p class="eyebrow">Available Now</p>
-        <h2>Shop the first live stickers.</h2>
-        <p>
-          Select a product below. Stripe displays the live product image, price and
-          checkout options directly inside each secure purchase card. The first sticker 
-          is $9 or $10 total: $4 or $5 for the sticker and $5 shipping. Additional stickers added to 
-          the same order for base price.
-        </p>
-      </div>
+  async function startCheckout(){
+    const items = Object.entries(cart)
+      .filter(([sku, quantity]) => quantity > 0 && productBySku(sku))
+      .map(([sku, quantity]) => ({ sku, quantity: Number(quantity) }));
 
-      <div class="stripe-grid">
-        <article class="stripe-card">
-          <p class="stripe-card-label">Live item 01</p>
-          <stripe-buy-button
-            buy-button-id="buy_btn_1U0t2X2Oui0IW8f2aMVc1sEC"
-            publishable-key="pk_live_51U0nlj2Oui0IW8f2apSGabOAARErLZM37nYqlaWSjpqv1MSrZbR9y67Vo6jKMzAjN5xbaJxT5KbBnCZ6QegmK1Fn00hOge1VLi">
-          </stripe-buy-button>
-        </article>
+    if(!items.length){
+      showToast('Your cart is empty.');
+      return;
+    }
 
-        <article class="stripe-card">
-          <p class="stripe-card-label">Live item 02</p>
-          <stripe-buy-button
-            buy-button-id="buy_btn_1U0t1r2Oui0IW8f2BoLq0Kaz"
-            publishable-key="pk_live_51U0nlj2Oui0IW8f2apSGabOAARErLZM37nYqlaWSjpqv1MSrZbR9y67Vo6jKMzAjN5xbaJxT5KbBnCZ6QegmK1Fn00hOge1VLi">
-          </stripe-buy-button>
-        </article>
+    const originalText = checkoutButton.textContent;
+    checkoutButton.disabled = true;
+    checkoutButton.textContent = 'Opening secure checkout…';
 
-        <article class="stripe-card">
-          <p class="stripe-card-label">Live item 03</p>
-          <stripe-buy-button
-            buy-button-id="buy_btn_1U0szh2Oui0IW8f2Rrz3Scwk"
-            publishable-key="pk_live_51U0nlj2Oui0IW8f2apSGabOAARErLZM37nYqlaWSjpqv1MSrZbR9y67Vo6jKMzAjN5xbaJxT5KbBnCZ6QegmK1Fn00hOge1VLi">
-          </stripe-buy-button>
-        </article>
-      </div>
-    </section>
+    try{
+      const response = await fetch(CHECKOUT_API_URL, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({items})
+      });
 
-    <section class="section-block" id="how-it-works">
-      <div class="section-heading">
-        <p class="eyebrow">Order Process</p>
-        <h2>Simple from click to shipment.</h2>
-      </div>
+      const data = await response.json().catch(() => ({}));
 
-      <div class="info-grid">
-        <article class="info-card">
-          <div class="info-number">01</div>
-          <h3>Choose the drop</h3>
-          <p>Choose one of the live sticker products displayed in the secure Stripe cards.</p>
-        </article>
+      if(!response.ok){
+        throw new Error(data.error || 'Unable to open checkout.');
+      }
 
-        <article class="info-card">
-          <div class="info-number">02</div>
-          <h3>Checkout through Stripe</h3>
-          <p>Stripe securely handles payment details, confirmation and the shipping address.</p>
-        </article>
+      if(!data.url){
+        throw new Error('Checkout URL was not returned.');
+      }
 
-        <article class="info-card">
-          <div class="info-number">03</div>
-          <h3>Production and shipping</h3>
-          <p>The preorder closes, the print quantity is finalized and orders are prepared for shipment.</p>
-        </article>
-      </div>
-    </section>
-  </main>
+      window.location.assign(data.url);
+    }catch(error){
+      console.error('Checkout error:', error);
+      checkoutButton.disabled = false;
+      checkoutButton.textContent = originalText;
+      showToast(error.message || 'Checkout is temporarily unavailable.');
+    }
+  }
 
-  <footer class="site-footer">
-    <div class="footer-shell">
-      <p class="footer-copy">© 2026 Pipe Pilot. All rights reserved.</p>
-      <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="pipe-pilot-site-preview.html">Preview</a>
-        <a href="index.html#testing">Testing</a>
-        <a href="index.html#contact">Contact</a>
-        <a href="index.html#privacy">Privacy</a>
-      </div>
-    </div>
-  </footer>
+  document.addEventListener('click',event=>{
+    const addButton = event.target.closest('[data-add-sku]');
+    const increaseButton = event.target.closest('[data-increase-sku]');
+    const decreaseButton = event.target.closest('[data-decrease-sku]');
+    const removeButton = event.target.closest('[data-remove-sku]');
+    if(addButton)addToCart(addButton.dataset.addSku);
+    if(increaseButton)changeQuantity(increaseButton.dataset.increaseSku,1);
+    if(decreaseButton)changeQuantity(decreaseButton.dataset.decreaseSku,-1);
+    if(removeButton)removeFromCart(removeButton.dataset.removeSku);
+  });
+  document.getElementById('open-cart').addEventListener('click',openCart);
+  checkoutButton.addEventListener('click', startCheckout);
+  document.getElementById('close-cart').addEventListener('click',closeCart);
+  cartBackdrop.addEventListener('click',closeCart);
+  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&cartDrawer.classList.contains('open'))closeCart()});
+
+  fetch('products.json').then(response=>{if(!response.ok)throw new Error('Product data failed to load');return response.json()}).then(data=>{products=data;renderCart()}).catch(()=>{products=fallbackProducts;renderCart()});
+</script>
 </body>
 </html>
