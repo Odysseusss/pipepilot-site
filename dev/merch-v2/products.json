@@ -1,0 +1,41 @@
+[
+  {
+    "sku": "PP-001",
+    "name": "First You Shake It",
+    "price": 4.00,
+    "currency": "CAD",
+    "image": "assets/images/first-you-shake-it.png",
+    "edition": "First Run",
+    "releaseDate": "August 2026",
+    "stock": 50,
+    "sold": 0,
+    "status": "active",
+    "description": "Trade-humour sticker featuring the Pipe Pilot impact-wrench design."
+  },
+  {
+    "sku": "PP-002",
+    "name": "Major League Toprails",
+    "price": 4.00,
+    "currency": "CAD",
+    "image": "assets/images/major-league-toprails.png",
+    "edition": "First Run",
+    "releaseDate": "August 2026",
+    "stock": 50,
+    "sold": 0,
+    "status": "active",
+    "description": "Field-inspired sticker celebrating the unofficial major league of working at height."
+  },
+  {
+    "sku": "PP-003",
+    "name": "Pipe Pilot Mountain",
+    "price": 3.00,
+    "currency": "CAD",
+    "image": "assets/images/pipe-pilot-mountain.jpg",
+    "edition": "First Run",
+    "releaseDate": "August 2026",
+    "stock": 50,
+    "sold": 0,
+    "status": "active",
+    "description": "Pipe Pilot mountain badge with industrial piping silhouettes."
+  }
+]

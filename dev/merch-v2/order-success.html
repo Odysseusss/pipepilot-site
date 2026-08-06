@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#07111f">
+  <title>Pipe Pilot | Order received</title>
+  <style>
+    :root{--bg:#07111f;--panel:#0f2035;--blue:#27a7ff;--light:#83d1ff;--text:#f4f8fc;--muted:#9fb0c2;--border:rgba(131,209,255,.24);--success:#79e0b3}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{min-height:100vh;display:grid;place-items:center;padding:24px;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);background:radial-gradient(circle at 50% 10%,rgba(39,167,255,.18),transparent 35%),linear-gradient(145deg,#040a12,var(--bg))}
+    main{width:min(620px,100%);padding:36px;border:1px solid var(--border);border-radius:22px;background:rgba(15,32,53,.92);box-shadow:0 24px 70px rgba(0,0,0,.34)}
+    .mark{width:58px;height:58px;display:grid;place-items:center;margin-bottom:22px;color:#03101b;font-size:1.6rem;font-weight:900;border-radius:18px;background:var(--success)}
+    h1{margin-bottom:14px;font-size:clamp(2rem,7vw,3.5rem);line-height:1;letter-spacing:-.04em}
+    p{color:var(--muted);font-size:1.05rem;line-height:1.7}
+    .button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;margin-top:26px;padding:13px 20px;color:#03101b;font-weight:850;text-decoration:none;border-radius:11px;background:linear-gradient(135deg,var(--light),var(--blue))}
+    .note{margin-top:18px;font-size:.84rem;color:#73879b}
+  </style>
+</head>
+<body>
+  <main>
+    <div class="mark" aria-hidden="true">✓</div>
+    <h1>Order received.</h1>
+    <p>Your payment was submitted through Stripe. Pipe Pilot will use the payment confirmation—not this page alone—to process the order.</p>
+    <a class="button" href="merch.html">Return to merch</a>
+    <p class="note">Keep your Stripe receipt for your records.</p>
+  </main>
+  <script>
+    localStorage.removeItem('pipePilotMerchCartV1');
+  </script>
+</body>
+</html>
