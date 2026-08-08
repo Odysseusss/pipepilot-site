@@ -37,5 +37,17 @@
     "sold": 0,
     "status": "active",
     "description": "Pipe Pilot mountain badge with industrial piping silhouettes."
-  }
+  },
+  {
+  "sku": "PP-004",
+  "name": "Bayou Sticker",
+  "price": 4,
+  "currency": "CAD",
+  "image": "assets/images/bayou-sticker.png",
+  "edition": "First Run",
+  "releaseDate": "August 2026",
+  "stock": 70,
+  "sold": 0,
+  "status": "active"
+}
 ]
