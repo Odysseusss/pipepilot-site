@@ -539,73 +539,40 @@
     .footer-links a:hover { color: var(--text); }
 
 
-    /* V5: store badges in header + footer */
-    .nav-platforms {
-      display: inline-flex;
+    /* V6: mobile platform badges inside the updates/signup panel */
+    .hero-store-badges {
+      display: flex;
       align-items: center;
-      gap: 8px;
-      margin-left: 8px;
-      padding-left: 10px;
-      border-left: 1px solid var(--border);
+      justify-content: center;
+      gap: 12px;
+      margin: 0 auto 22px;
+      flex-wrap: wrap;
     }
 
-    .nav-store-badge {
+    .hero-store-badge {
       display: block;
-      width: 112px;
+      width: 160px;
       height: auto;
-      border-radius: 7px;
-      opacity: 0.94;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
+      border-radius: 8px;
+      opacity: 0.96;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
       transition: transform 160ms ease, opacity 160ms ease;
     }
 
-    .nav-store-badge:hover {
+    .hero-store-badge:hover {
       transform: translateY(-1px);
       opacity: 1;
     }
 
-    .footer-platforms {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-left: 6px;
-    }
-
-    .footer-store-badge {
-      display: block;
-      width: 112px;
-      height: auto;
-      border-radius: 7px;
-      opacity: 0.88;
-      transition: opacity 160ms ease;
-    }
-
-    .footer-store-badge:hover {
-      opacity: 1;
+    .hero-store-note {
+      margin: -8px 0 22px;
+      color: var(--muted-dark);
+      font-size: 0.8rem;
+      line-height: 1.5;
+      text-align: center;
     }
 
     @media (max-width: 900px) {
-      .nav-shell {
-        align-items: stretch;
-      }
-
-      .nav-links {
-        flex-wrap: wrap;
-      }
-
-      .nav-platforms {
-        width: 100%;
-        margin-left: 0;
-        padding-left: 0;
-        padding-top: 10px;
-        border-left: 0;
-        border-top: 1px solid var(--border);
-      }
-
-      .nav-store-badge {
-        width: 118px;
-      }
-
       .nav-shell {
         min-height: auto;
         padding: 14px 0;
@@ -633,23 +600,13 @@
     }
 
     @media (max-width: 640px) {
-      .nav-platforms {
-        gap: 7px;
+
+      .hero-store-badges {
+        gap: 8px;
       }
 
-      .nav-store-badge {
-        width: 108px;
-      }
-
-      .footer-platforms {
-        width: 100%;
-        margin-left: 0;
-        margin-top: 8px;
-        flex-wrap: wrap;
-      }
-
-      .footer-store-badge {
-        width: 120px;
+      .hero-store-badge {
+        width: 145px;
       }
 
       .nav-logo {
@@ -740,18 +697,6 @@
         <li><a href="#testing">Testing</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="#privacy">Privacy</a></li>
-        <li class="nav-platforms" aria-label="Mobile app availability">
-          <img
-            class="nav-store-badge"
-            src="assets/images/app-store-coming-soon.webp"
-            alt="Coming soon to the App Store"
-          >
-          <img
-            class="nav-store-badge"
-            src="assets/images/google-play-coming-soon.webp"
-            alt="Coming soon to Google Play"
-          >
-        </li>
       </ul>
     </nav>
   </header>
@@ -782,6 +727,21 @@
 
       <aside class="hero-panel" aria-label="Pipe Pilot updates signup">
         <img src="pipe-pilot-wordmark.png" alt="Pipe Pilot">
+
+        <div class="hero-store-badges" aria-label="Mobile app availability">
+          <img
+            class="hero-store-badge"
+            src="assets/images/app-store-coming-soon.webp"
+            alt="Coming soon to the App Store"
+          >
+          <img
+            class="hero-store-badge"
+            src="assets/images/google-play-coming-soon.webp"
+            alt="Coming soon to Google Play"
+          >
+        </div>
+
+        <p class="hero-store-note">Native iPhone and Android apps in development.</p>
 
         <h2>Get Pipe Pilot updates</h2>
 
@@ -986,19 +946,6 @@
           <a href="#testing">Testing</a>
           <a href="#contact">Contact</a>
           <a href="#privacy">Privacy</a>
-
-          <span class="footer-platforms" aria-label="Mobile app availability">
-            <img
-              class="footer-store-badge"
-              src="assets/images/app-store-coming-soon.webp"
-              alt="Coming soon to the App Store"
-            >
-            <img
-              class="footer-store-badge"
-              src="assets/images/google-play-coming-soon.webp"
-              alt="Coming soon to Google Play"
-            >
-          </span>
         </div>
       </div>
     </footer>
