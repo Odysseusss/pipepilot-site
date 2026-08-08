@@ -31,17 +31,19 @@
 <aside class="cart-drawer" id="cart-drawer" aria-labelledby="cart-title" aria-hidden="true">
   <div class="cart-header"><h2 id="cart-title">Your cart</h2><button class="icon-button" id="close-cart" type="button" aria-label="Close cart">Close</button></div>
   <div class="cart-items" id="cart-items" aria-live="polite"></div>
-  <div class="cart-footer"><div class="summary"><div class="summary-row"><span>Merch subtotal</span><strong id="cart-subtotal">$0.00</strong></div><div class="summary-row"><span>Shipping &amp; handling</span><strong id="cart-shipping">$0.00</strong></div><div class="summary-row summary-total"><span>Order total</span><strong id="cart-total">$0.00</strong></div></div><button class="checkout" id="checkout-button" type="button" disabled>Checkout coming next</button><p class="cart-note">Flat-rate shipping anywhere in Canada: $4.99 CAD.</p></div>
+  <div class="cart-footer"><div class="summary"><div class="summary-row"><span>Merch subtotal</span><strong id="cart-subtotal">$0.00</strong></div><div class="summary-row"><span>Shipping &amp; handling</span><strong id="cart-shipping">$0.00</strong></div><div class="summary-row summary-total"><span>Order total</span><strong id="cart-total">$0.00</strong></div></div><button class="checkout" id="checkout-button" type="button" disabled>Checkout coming next</button><p class="cart-note">$4.99 flat-rate shipping in Canada. Free shipping on merch orders $30+.</p></div>
 </aside>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script>
   const CART_STORAGE_KEY = 'pipePilotMerchCartV1';
   const SHIPPING_RATE = 4.99;
+  const FREE_SHIPPING_THRESHOLD = 30;
   const CHECKOUT_API_URL = 'https://pipepilot-api.vercel.app/api/create-checkout-session';
   const fallbackProducts = [
     {sku:'PP-001',name:'First You Shake It',price:4,currency:'CAD',image:'assets/images/first-you-shake-it.png',edition:'First Run',releaseDate:'August 2026',stock:50,sold:0,status:'active'},
     {sku:'PP-002',name:'Major League Toprails',price:4,currency:'CAD',image:'assets/images/major-league-toprails.png',edition:'First Run',releaseDate:'August 2026',stock:50,sold:0,status:'active'},
-    {sku:'PP-003',name:'Pipe Pilot Mountain',price:3,currency:'CAD',image:'assets/images/pipe-pilot-mountain.jpg',edition:'First Run',releaseDate:'August 2026',stock:50,sold:0,status:'active'}
+    {sku:'PP-003',name:'Pipe Pilot Mountain',price:3,currency:'CAD',image:'assets/images/pipe-pilot-mountain.jpg',edition:'First Run',releaseDate:'August 2026',stock:90,sold:0,status:'active'},
+    {sku:'PP-004',name:'Bayou Sticker',price:4,currency:'CAD',image:'assets/images/bayou-sticker.png',edition:'First Run',releaseDate:'August 2026',stock:70,sold:0,status:'active'}
   ];
   let products = [];
   let cart = loadCart();
@@ -67,7 +69,7 @@
     }
   }
   function saveCart(){localStorage.setItem(CART_STORAGE_KEY,JSON.stringify(cart))}
-  function stockLabel(stock){if(stock<=0)return{label:'Sold Out',cls:'soldout'};if(stock<=5)return{label:`Only ${stock} Left`,cls:'critical'};if(stock<=20)return{label:'Low Stock',cls:'low'};return{label:'In Stock',cls:''}}
+  function stockLabel(stock){if(stock<=0)return{label:'Sold Out',cls:'soldout'};if(stock<=15)return{label:`Only ${stock} Left`,cls:'critical'};return{label:'In Stock',cls:''}}
   function productBySku(sku){return products.find(product=>product.sku===sku)}
   function cartQuantity(sku){return Number(cart[sku]||0)}
   function totalCartItems(){return Object.values(cart).reduce((sum,quantity)=>sum+Number(quantity||0),0)}
@@ -115,10 +117,11 @@
       subtotal += lineTotal;
       return `<article class="cart-item"><div class="cart-thumb"><img src="${product.image}" alt=""></div><div><div class="cart-item-top"><div><div class="cart-item-name">${product.name}</div><div class="cart-item-price">${money.format(product.price)} each</div></div><strong class="line-total">${money.format(lineTotal)}</strong></div><div class="quantity-row"><div class="quantity-control" aria-label="Quantity controls for ${product.name}"><button type="button" data-decrease-sku="${sku}" aria-label="Decrease quantity">−</button><span>${quantity}</span><button type="button" data-increase-sku="${sku}" aria-label="Increase quantity" ${quantity>=product.stock?'disabled':''}>+</button></div><button class="remove" type="button" data-remove-sku="${sku}">Remove</button></div></div></article>`;
     }).join('');
-    const shipping = SHIPPING_RATE;
+    const qualifiesForFreeShipping = subtotal >= FREE_SHIPPING_THRESHOLD;
+    const shipping = qualifiesForFreeShipping ? 0 : SHIPPING_RATE;
     const orderTotal = subtotal + shipping;
     cartSubtotal.textContent = money.format(subtotal);
-    cartShipping.textContent = money.format(shipping);
+    cartShipping.textContent = qualifiesForFreeShipping ? 'FREE' : money.format(shipping);
     cartTotal.textContent = money.format(orderTotal);
     checkoutButton.textContent = `Checkout — ${money.format(orderTotal)}`;
     checkoutButton.disabled = false;
