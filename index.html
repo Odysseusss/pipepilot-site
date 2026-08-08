@@ -538,6 +538,53 @@
 
     .footer-links a:hover { color: var(--text); }
 
+
+    /* Mobile store badge demo */
+    .hero-brand-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(150px, 0.95fr);
+      align-items: center;
+      gap: 22px;
+      margin-bottom: 26px;
+    }
+
+    .hero-brand-row > img {
+      width: min(230px, 100%);
+      height: auto;
+      margin: 0;
+    }
+
+    .store-badges {
+      display: grid;
+      gap: 10px;
+      justify-items: stretch;
+    }
+
+    .store-badge {
+      display: block;
+      width: 100%;
+      max-width: 230px;
+      margin-left: auto;
+      opacity: 0.92;
+      border-radius: 9px;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.28);
+      transition: transform 160ms ease, opacity 160ms ease, box-shadow 160ms ease;
+    }
+
+    .store-badge:hover {
+      transform: translateY(-1px);
+      opacity: 1;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.34);
+    }
+
+    .store-note {
+      margin: 0 0 22px;
+      color: var(--muted-dark);
+      font-size: 0.78rem;
+      line-height: 1.5;
+      text-align: right;
+    }
+
     @media (max-width: 900px) {
       .nav-shell {
         min-height: auto;
@@ -566,6 +613,31 @@
     }
 
     @media (max-width: 640px) {
+
+      .hero-brand-row {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .hero-brand-row > img {
+        width: min(230px, 72%);
+        margin: 0 auto;
+      }
+
+      .store-badges {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+
+      .store-badge {
+        max-width: none;
+        margin: 0;
+      }
+
+      .store-note {
+        text-align: center;
+      }
+
       .nav-logo {
         width: 158px;
         max-height: 42px;
@@ -683,7 +755,24 @@
       </div>
 
       <aside class="hero-panel" aria-label="Pipe Pilot updates signup">
-        <img src="pipe-pilot-wordmark.png" alt="Pipe Pilot">
+        <div class="hero-brand-row">
+          <img src="pipe-pilot-wordmark.png" alt="Pipe Pilot">
+
+          <div class="store-badges" aria-label="Mobile app availability">
+            <img
+              class="store-badge"
+              src="app-store-coming-soon.webp"
+              alt="Coming soon to the App Store"
+            >
+            <img
+              class="store-badge"
+              src="google-play-coming-soon.webp"
+              alt="Coming soon to Google Play"
+            >
+          </div>
+        </div>
+
+        <p class="store-note">Native iPhone and Android apps in development.</p>
 
         <h2>Get Pipe Pilot updates</h2>
 
