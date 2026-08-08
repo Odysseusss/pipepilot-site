@@ -161,9 +161,10 @@
       return `<article class="cart-item"><div class="cart-thumb"><img src="${product.image}" alt=""></div><div><div class="cart-item-top"><div><div class="cart-item-name">${product.name}</div><div class="cart-item-price">${money.format(product.price)} each</div></div><strong class="line-total">${money.format(lineTotal)}</strong></div><div class="quantity-row"><div class="quantity-control" aria-label="Quantity controls for ${product.name}"><button type="button" data-decrease-sku="${sku}" aria-label="Decrease quantity">−</button><span>${quantity}</span><button type="button" data-increase-sku="${sku}" aria-label="Increase quantity" ${quantity>=product.stock?'disabled':''}>+</button></div><button class="remove" type="button" data-remove-sku="${sku}">Remove</button></div></div></article>`;
     }).join('');
     const merchandiseDiscount = appliedPromo ? Math.min(subtotal,Math.max(0,Number(appliedPromo.discountCents||0)/100)) : 0;
-    const qualifiesForFreeShipping = subtotal >= FREE_SHIPPING_THRESHOLD || Boolean(appliedPromo?.freeShipping);
+    const discountedSubtotal = Math.max(0,subtotal-merchandiseDiscount);
+    const qualifiesForFreeShipping = discountedSubtotal >= FREE_SHIPPING_THRESHOLD || Boolean(appliedPromo?.freeShipping);
     const shipping = qualifiesForFreeShipping ? 0 : SHIPPING_RATE;
-    const orderTotal = Math.max(0,subtotal-merchandiseDiscount) + shipping;
+    const orderTotal = discountedSubtotal + shipping;
     cartSubtotal.textContent = money.format(subtotal);
     if(appliedPromo){
       promoSummaryRow.hidden=false;
