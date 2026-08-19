@@ -137,25 +137,16 @@
       font-weight: 650;
       text-decoration: none;
       border-radius: 8px;
-      transition: color 160ms ease, background 160ms ease;
+      transition: color 160ms ease, background 160ms ease, box-shadow 160ms ease, transform 160ms ease;
     }
 
     .nav-links a:hover,
     .nav-links a:focus-visible {
-      color: var(--text);
-      background: rgba(39, 167, 255, 0.09);
-    }
-
-    .nav-links .nav-merch {
       color: #03101b;
       background: linear-gradient(135deg, var(--light-blue), var(--blue));
-      box-shadow: 0 8px 22px rgba(39, 167, 255, 0.2);
-    }
-
-    .nav-links .nav-merch:hover,
-    .nav-links .nav-merch:focus-visible {
-      color: #03101b;
-      background: linear-gradient(135deg, #a7e1ff, #39afff);
+      box-shadow:
+        0 8px 22px rgba(39, 167, 255, 0.28),
+        0 0 16px rgba(39, 167, 255, 0.18);
       transform: translateY(-1px);
     }
 
@@ -692,7 +683,7 @@
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="pipe-pilot-site-preview.html">Preview</a></li>
-        <li><a class="nav-merch" href="merch.html">Merch</a></li>
+        <li><a href="merch.html">Merch</a></li>
         <li><a href="updates.html">Updates</a></li>
         <li><a href="#testing">Testing</a></li>
         <li><a href="#contact">Contact</a></li>
