@@ -127,7 +127,7 @@
     const active = products
       .filter(product=>product.status==='active' && product.sku!=='PP-00A')
       .sort((a,b)=>{
-        const featuredOrder = ['PP-001','PP-008','PP-002','PP-003','PP-004','PP-005','PP-006','PP-007'];
+        const featuredOrder = ['PP-001','PP-002','PP-003','PP-004','PP-005','PP-006','PP-007','PP-008'];
         return featuredOrder.indexOf(a.sku) - featuredOrder.indexOf(b.sku);
       });
     productGrid.innerHTML = active.map(product=>{
