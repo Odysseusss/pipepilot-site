@@ -23,7 +23,7 @@
 <body>
 <header><nav class="shell"><a href="/" aria-label="Pipe Pilot home"><img class="logo" src="assets/images/pipe-pilot-wordmark.png" alt="Pipe Pilot"></a><div class="nav-actions"><a class="link" href="#collection">Collection</a><button class="cart-button" id="open-cart" type="button" aria-label="Open cart">Cart <span class="cart-count" id="cart-count">0</span></button></div></nav></header>
 <main class="shell">
-  <section class="hero"><div><p class="eyebrow">Pipe Pilot Merch</p><h1>Field-built. Toolbox approved.</h1><p>Original Pipe Pilot stickers made for hardhats, gang boxes, welders, laptops and anywhere else that needs more personality.</p></div><div class="hero-art"><img src="assets/images/mysterypack.png" alt="Pipe Pilot Mystery 5-Pack"><button class="hero-cta" type="button" data-buy-sku="PP-008">Buy Mystery 5-Pack — $10</button></div></section>
+  <section class="hero"><div><p class="eyebrow">Pipe Pilot Merch</p><h1>Field-built. Toolbox approved.</h1><p>Original Pipe Pilot stickers made for hardhats, gang boxes, welders, laptops and anywhere else that needs more personality.</p></div><div class="hero-art"><img src="assets/images/mysterypack.png" alt="Pipe Pilot Mystery 5-Pack"><button class="hero-cta" type="button" data-buy-sku="PP-00A">Buy Mystery 5-Pack — $10</button></div></section>
   <section id="collection"><div class="heading"><p class="eyebrow">Available Now</p><h2>Shop Pipe Pilot stickers.</h2></div><div class="product-grid" id="product-grid" aria-live="polite"></div></section>
 </main>
 <footer><div class="shell"><span>© 2026 Pipe Pilot. All rights reserved.</span><a class="link" href="#">Back to top</a></div></footer>
@@ -49,7 +49,8 @@
   'PP-005': {image:'assets/images/double-bubble.png',edition:'First Run',releaseDate:'August 2026'},
   'PP-006': {image:'assets/images/always-tight.png',edition:'First Run',releaseDate:'August 2026'},
   'PP-007': {image:'assets/images/financed-by-high-leverage-sticker.png',edition:'First Run',releaseDate:'August 2026'},
-  'PP-008': {image:'assets/images/mysterypack.png',edition:'Mystery Pack',releaseDate:'August 2026'}
+  'PP-008': {image:'assets/images/palm-springs.png',edition:'First Run',releaseDate:'August 2026'},
+  'PP-00A': {image:'assets/images/mysterypack.png',edition:'Mystery Pack',releaseDate:'August 2026'}
 };
 
   let products = [];
@@ -124,7 +125,7 @@
 
   function renderProducts(){
     const active = products
-      .filter(product=>product.status==='active' && product.sku!=='PP-008')
+      .filter(product=>product.status==='active' && product.sku!=='PP-00A')
       .sort((a,b)=>{
         const featuredOrder = ['PP-001','PP-008','PP-002','PP-003','PP-004','PP-005','PP-006','PP-007'];
         return featuredOrder.indexOf(a.sku) - featuredOrder.indexOf(b.sku);
