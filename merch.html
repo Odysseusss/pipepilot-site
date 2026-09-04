@@ -51,6 +51,7 @@
   'PP-007': {image:'assets/images/financed-by-high-leverage-sticker.png',edition:'First Run',releaseDate:'August 2026'},
   'PP-008': {image:'assets/images/palm-springs.png',edition:'First Run',releaseDate:'August 2026'},
   'PP-009': {image:'assets/images/seized.png',edition:'First Run',releaseDate:'August 2026'},
+  'PP-010': {image:'assets/images/Bucks.png',edition:'First Run',releaseDate:'September 2026'},
   'PP-00A': {image:'assets/images/mysterypack.png',edition:'Mystery Pack',releaseDate:'August 2026'}
 };
 
@@ -128,7 +129,7 @@
     const active = products
       .filter(product=>product.status==='active' && product.sku!=='PP-00A')
       .sort((a,b)=>{
-        const featuredOrder = ['PP-001','PP-002','PP-003','PP-004','PP-005','PP-006','PP-007','PP-008','PP-009'];
+        const featuredOrder = ['PP-001','PP-002','PP-003','PP-004','PP-005','PP-006','PP-007','PP-008','PP-009','PP-010'];
         return featuredOrder.indexOf(a.sku) - featuredOrder.indexOf(b.sku);
       });
     productGrid.innerHTML = active.map(product=>{
